@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.example.cred.model.PlanItem" />
+    </data>
+ <androidx.cardview.widget.CardView
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     >
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:background="@color/card2Bg">
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:elevation="0dp"
+        android:padding="@dimen/_15sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        app:cardCornerRadius="20dp"
+        android:layout_marginEnd="@dimen/_3sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        app:strokeWidth="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_13sdp"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:buttonTint="@color/lightText"
+                android:button="@drawable/custom_checkbox" />
+
+            <TextView
+                android:id="@+id/price_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:fontFamily="@font/questrial"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:text="@{item.emi}"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14ssp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/questrial"
+                android:text="@{String.format(`for %s`, String.valueOf(item.duration))}"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:textColor="@color/lightText"
+                android:textSize="@dimen/_10ssp" />
+
+            <TextView
+                android:id="@+id/see_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:fontFamily="@font/questrial"
+                android:text="@{item.subtitle}"
+                android:background="@drawable/light_dashed_underline"
+                android:textColor="@color/lightText"
+                android:textSize="@dimen/_8ssp" />
+
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+       <TextView
+           android:id="@+id/rec_text"
+           android:background="@drawable/round_text"
+           android:layout_width="wrap_content"
+           android:textSize="@dimen/_9ssp"
+           android:textColor="@color/greyText"
+           android:visibility="gone"
+           android:text="@{item.tag}"
+           android:padding="@dimen/_6sdp"
+           android:layout_marginTop="@dimen/_4sdp"
+           android:layout_height="wrap_content"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           />
+   </androidx.constraintlayout.widget.ConstraintLayout>
+ </androidx.cardview.widget.CardView>
+</layout>
